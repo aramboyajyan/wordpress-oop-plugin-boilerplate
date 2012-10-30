@@ -2,10 +2,9 @@
 
 /**
  * @file
- * Sample plugin subpage
+ * General options page
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
  */
-
 print 'Subpage';

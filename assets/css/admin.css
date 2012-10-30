@@ -85,6 +85,9 @@
 .file-preview img {
   max-width: 400px;
 }
+.boilerplate-radios-wrapper label span {
+  padding: 0 10px 0 5px;
+}
 /* Form end */
 
 

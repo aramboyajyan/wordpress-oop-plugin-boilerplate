@@ -154,7 +154,7 @@ class Boilerplate {
     
     // Subpages
     // add_submenu_page($this->namespace . '/admin-pages/options.php', __('Boilerplate'), __('Boilerplate'), 'edit-posts', $this->namespace . '/admin-pages/options.php');
-    // add_submenu_page($this->namespace . '/admin-pages/options.php', __('Subpage'), __('Subpage'), 'edit-posts', $this->namespace . '/admin-pages/subpage.php');
+    add_submenu_page($this->namespace . '/admin-pages/options.php', __('Subpage'), __('Subpage'), 'edit-posts', $this->namespace . '/admin-pages/subpage.php');
 
   }
 

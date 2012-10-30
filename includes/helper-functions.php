@@ -40,19 +40,24 @@ function boilerplate_field($field, $print = TRUE, $admin_page = FALSE) {
     case 'select':
       $output .= '<select id="' . $field['id'] . '" name="' . $field['id'] . '">';
       foreach ($field['options'] as $value => $title) {
-        $selected = ($field['value']==$value) ? ' selected="selected"' : '';
+        $selected = ($field['value'] == $value) ? ' selected="selected"' : '';
         $output .= '<option value="' . $value . '"' . $selected . '>' . $title . '</option>';
       }
       $output .= '</select>';
       break;
 
     case 'radios':
-      $output .= '<select id="' . $field['id'] . '" name="' . $field['id'] . '">';
-      foreach ($field['options'] as $value => $title) {
-        $selected = ($field['value']==$value) ? ' selected="selected"' : '';
-        $output .= '<option value="' . $value . '"' . $selected . '>' . $title . '</option>';
+      $count = 0;
+      $output .= '<div class="boilerplate-radios-wrapper">';
+      foreach ($field['options'] as $value => $label) {
+        $selected = ($field['value'] == $value) ? ' checked="checked"' : '';
+        $output .= '<label>';
+        $output .= '<input type="radio" value="' . $value . '"' . $selected . ' name="' . $field['id'] . '">';
+        $output .= '<span>' . $label . '</span>';
+        $output .= '</label>';
       }
-      $output .= '</select>';
+      $output .= '</div>';
+      $count++;
       break;
 
     case 'file':

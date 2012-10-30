@@ -56,6 +56,21 @@ $page = array(
           ),
         ),
         array(
+          'id' => 'radios',
+          'type' => 'radios',
+          'label' => __('Radios'),
+          'help' => __('Radios help text.'),
+          'class' => 'boilerplate-tab-content tab-one',
+          'value' => get_option(BOILERPLATE_SHORTNAME . 'radios'),
+          'options' => array(
+            1 => 'Option 1',
+            2 => 'Option 2',
+            3 => 'Option 3',
+            4 => 'Option 4',
+            5 => 'Option 5',
+          ),
+        ),
+        array(
           'id' => 'checkbox',
           'type' => 'checkbox',
           'label' => __('Checkbox'),
