@@ -55,7 +55,6 @@ class Boilerplate_List_Users extends WP_List_Table {
       'name' => 'Full name',
       'username' => 'Username',
       'email' => 'Email',
-      'subscription' => 'Subscription',
       'type' => 'Type',
       'action' => 'Action',
     );
@@ -90,31 +89,6 @@ class Boilerplate_List_Users extends WP_List_Table {
      * Prepare the data
      */
     global $wpdb;
-    $settings_link = get_bloginfo('wpurl').'/'.get_option(GENERAL_SHORTNAME.'subscriptions_page');
-    $author_link = get_bloginfo('wpurl').'/forums/users/';
-    $data = $wpdb->get_results("SELECT
-                                  u.`ID`,
-                                  u.`display_name` AS `name`,
-                                  u.`user_nicename` AS `username`,
-                                  u.`user_email` AS `email`,
-                                  s.`email_type` AS `type`
-                                FROM
-                                  $wpdb->users u,
-                                  `".$wpdb->prefix."general_user_settings` s
-                                WHERE
-                                  u.ID = s.uid", ARRAY_A);
-    // Additional settings
-    foreach ($data as $key => $item) {
-      $forums = $wpdb->get_results("SELECT s.`type`, s.`summary`, p.`post_title` AS `name` FROM `".$wpdb->prefix."general_subscriptions` s, $wpdb->posts p WHERE p.`ID` = s.`fid` AND `uid` = ".$item['ID']);
-      // Get settings per forum
-      foreach ($forums as $forum) {
-        $data[$key]['subscription'] = $forum->name.': '.$forum->type.', summary: '.$forum->summary.'<br>';
-      }
-      // Link to user profile
-      $data[$key]['name'] = '<a href="'.$author_link.$data[$key]['username'].'" target="_blank">'.$data[$key]['name'].'</a>';
-      // Create edit link
-      $data[$key]['action'] = '<a href="'.$settings_link.'?uid='.$item['ID'].'" target="_blank">Edit</a>';
-    }
 
     /**
      * Sorting
