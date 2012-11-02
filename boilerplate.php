@@ -9,7 +9,7 @@
  */
 
 /**
- * Plugin name: General
+ * Plugin name: OOP Boilerplate
  * Author: Topsitemakers
  * Author URI: http://www.topsitemakers.com/
  * Description: Custom plugin boilerplate.
@@ -84,7 +84,7 @@ class Boilerplate {
     }
     
     // Setup default values of the variables
-    add_option(BOILERPLATE_SHORTNAME . 'last_generated_daily_summary', '0');
+    add_option(BOILERPLATE_SHORTNAME . 'sample_variable', '0');
 
   }
 
