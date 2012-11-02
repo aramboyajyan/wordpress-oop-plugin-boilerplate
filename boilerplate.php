@@ -67,8 +67,7 @@ class Boilerplate {
     global $wpdb;
     
     // Define table names
-    $table_name_dev = $wpdb->prefix.'boilerplate_dev';
-    $table_name_sample   = $wpdb->prefix.'boilerplate_sample';
+    $table_name_sample   = $wpdb->prefix . 'boilerplate_sample';
     
     // Check if the tables already exist
     if ($wpdb->get_var("SHOW TABLES LIKE '" . $table_name_sample . "'") != $table_name_sample) {
