@@ -1,6 +1,6 @@
 # [WordPress](http://wordpress.org) plugin boilerplate
 
-WordPress plugin boilerplate.
+WordPress OOP plugin boilerplate.
 
 ### Todo
 
@@ -10,7 +10,6 @@ WordPress plugin boilerplate.
 - User list class
 - View integration
 - Checkboxes
-- Radio buttons
 
 <hr>
 
