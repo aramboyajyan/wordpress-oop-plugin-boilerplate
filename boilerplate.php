@@ -57,6 +57,8 @@ class Boilerplate {
     add_filter('cron_schedules', array(&$this, 'cron_schedules'));
     // Registers
     register_activation_hook(__FILE__, array(&$this, 'install'));
+    // Shortcodes
+    add_shortcode('boilerplate', array(&$this, 'shortcode_boilerplate'));
   }
 
   /**
@@ -187,6 +189,16 @@ class Boilerplate {
     // Required by WP
     exit;
 
+  }
+
+  /**
+   * Custom shortcode
+   */
+  public function shortcode_boilerplate($atts) {
+    extract(shortcode_atts(array(
+      'attribute' => 'value',
+    ), $atts));
+    return 'attribute = "' . $attribute . '"';
   }
 
 }
