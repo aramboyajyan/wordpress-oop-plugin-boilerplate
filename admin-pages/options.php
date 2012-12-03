@@ -63,11 +63,11 @@ $page = array(
           'class' => 'boilerplate-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'radios'),
           'options' => array(
-            1 => 'Option 1',
-            2 => 'Option 2',
-            3 => 'Option 3',
-            4 => 'Option 4',
-            5 => 'Option 5',
+            1 => __('Option 1'),
+            2 => __('Option 2'),
+            3 => __('Option 3'),
+            4 => __('Option 4'),
+            5 => __('Option 5'),
           ),
         ),
         array(
