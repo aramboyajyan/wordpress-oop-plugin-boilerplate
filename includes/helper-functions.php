@@ -2,14 +2,15 @@
 
 /**
  * @file
- * Plugin helper functions
+ * Plugin helper functions.
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
  */
 
 /**
- * Display fields
+ * Display fields.
+ *
  * If $admin_page is enabled, value will be fetched with get_option()
  */
 if (!function_exists('boilerplate_field')):
@@ -81,18 +82,18 @@ function boilerplate_field($field, $print = TRUE, $admin_page = FALSE) {
       $output .= '<input class="button" type="submit" id="' . $field['id'] . '" value="' . $field['value'] . '" />';
       break;
   }
-  // Help
+  // Help.
   if (isset($field['help'])) $output .= '<div class="help">' . $field['help'] . '</div>';
-  // Close field wrapper
+  // Close field wrapper.
   $output .= '</div>';
-  // Close wrap
+  // Close wrap.
   $output .= '</div>';
   return $print ? print $output : $output;
 }
 endif;
 
 /**
- * Closing for custom fields
+ * Closing for custom fields.
  */
 if (!function_exists('boilerplate_field_close')):
 function boilerplate_field_close($print = TRUE) {
@@ -101,21 +102,21 @@ function boilerplate_field_close($print = TRUE) {
 endif;
 
 /**
- * Generate admin page
+ * Generate admin page.
  */
 if (!function_exists('boilerplate_generate_admin_page')):
 function boilerplate_generate_admin_page($page) {
-  // Wrap everything for styling
+  // Wrap everything for styling.
   $output  = '<div id="boilerplate-admin-page"><div class="wrap">';
-  // Page title and tabs
+  // Page title and tabs.
   $output .= '<h2>' . $page['title'] . '</h2>';
-  // Page description
+  // Page description.
   if (isset($page['description'])) $output .= '<h4>' . $page['description'] . '</h4>';
-  // Page help text
+  // Page help text.
   if (isset($page['content'])) $output .= '<p>' . $page['content'] . '</p>';
-  // Form
+  // Form.
   if (isset($page['form'])) $output .= '<form action="' . htmlspecialchars($_SERVER['REQUEST_URI']) . '" method="post">';
-  // Page fields
+  // Page fields.
   if (isset($page['fieldset'])) {
     foreach ($page['fieldset'] as $fieldset) {
       $output .= '<div class="boilerplate-fieldset-div metabox-holder">';
@@ -137,16 +138,16 @@ function boilerplate_generate_admin_page($page) {
       $output .= '</div>';
     }
   }
-  // Close form
+  // Close form.
   if (isset($page['form'])) $output .= '</form>';
-  // Close wrappers
+  // Close wrappers.
   $output .= '</div></div>';
   print $output;
 }
 endif;
 
 /**
- * Handle saving of admin settings data - mass
+ * Handle saving of admin settings data - mass.
  */
 if (!function_exists('boilerplate_admin_page_save_handle')):
 function boilerplate_admin_page_save_handle($message = FALSE) {

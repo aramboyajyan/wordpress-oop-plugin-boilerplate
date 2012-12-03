@@ -19,20 +19,20 @@
  * http://www.topsitemakers.com/
  */
 
-// Sanity check
+// Sanity check.
 if (!defined('ABSPATH')) die('Direct access is not allowed.');
 
-// Helper functions
+// Helper functions.
 include('includes/helper-functions.php');
 
-// Constants
+// Constant variables used in the plugin.
 include('includes/constants.php');
 
-// User list table class
+// User list table class.
 include('includes/user-list.class.php');
 
 /**
- * Main plugin class
+ * Main plugin class.
  */
 class Boilerplate {
 
@@ -41,37 +41,37 @@ class Boilerplate {
   var $namespace = 'boilerplate';
 
   /**
-   * Constructor
+   * Constructor.
    */
   function __construct() {
-    // Localization
+    // Localization.
     load_plugin_textdomain($this->namespace . '-locale', FALSE, dirname(plugin_basename(__FILE__)) . '/lang');
-    // Actions
+    // Actions.
     add_action('init', array(&$this, 'init'));
     add_action('admin_init', array(&$this, 'admin_init'));
     add_action('admin_menu', array(&$this, 'admin_menu'));
     add_action('wp_ajax_nopriv_boilerplate_ajax', array(&$this, 'ajax'));
     add_action('wp_ajax_boilerplate_ajax', array(&$this, 'ajax'));
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
-    // Filters
+    // Filters.
     add_filter('cron_schedules', array(&$this, 'cron_schedules'));
-    // Registers
+    // Registers.
     register_activation_hook(__FILE__, array(&$this, 'install'));
-    // Shortcodes
+    // Shortcodes.
     add_shortcode('boilerplate', array(&$this, 'shortcode_boilerplate'));
   }
 
   /**
-   * Plugin installation
+   * Plugin installation.
    */
   public function install() {
 
     global $wpdb;
     
-    // Define table names
+    // Define table names.
     $table_name_sample   = $wpdb->prefix . 'boilerplate_sample';
     
-    // Check if the tables already exist
+    // Check if the tables already exist.
     if ($wpdb->get_var("SHOW TABLES LIKE '" . $table_name_sample . "'") != $table_name_sample) {
       // Table SQL
       $table_sample = "CREATE TABLE " . $table_name_sample . "(
@@ -79,27 +79,27 @@ class Boilerplate {
                         time INT NOT NULL,
                         text VARCHAR(8) NOT NULL);";
       
-      // Get the upgrade PHP and create the tables
+      // Get the upgrade PHP and create the tables.
       require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
       dbDelta($table_sample);
     }
     
-    // Setup default values of the variables
+    // Setup default values of the variables.
     add_option(BOILERPLATE_SHORTNAME . 'sample_variable', '0');
 
   }
 
   /**
-   * Front-end init
+   * Front-end init.
    */
   public function init() {
     
-    // Front-end styles
+    // Front-end styles.
     wp_enqueue_style($this->namespace . '-style', plugins_url($this->namespace . '/assets/css/front.css'));
-    // Front-end scripts
+    // Front-end scripts.
     wp_enqueue_script($this->namespace . '-script', plugins_url($this->namespace . '/assets/js/front.js'), array('jquery'));
     
-    // Hook our cron
+    // Hook our cron.
     if (!wp_next_scheduled($this->namespace . '_execute_cron')) {
       wp_schedule_event(current_time('timestamp'), 'every_minute', $this->namespace . '_execute_cron');
     }
@@ -107,21 +107,21 @@ class Boilerplate {
   }
 
   /**
-   * Admin init
+   * Admin init.
    */
   public function admin_init() {
 
-    // Admin styles
+    // Admin styles.
     wp_enqueue_style($this->namespace . '-style-admin', plugins_url($this->namespace . '/assets/css/admin.css'));
     wp_enqueue_style('thickbox');
-    // Admin scripts
+    // Admin scripts.
     wp_enqueue_script($this->namespace . '-script-admin', plugins_url($this->namespace . '/assets/js/admin.js'), array('jquery'));
     wp_enqueue_script('media-upload');
 
   }
 
   /**
-   * Cron callback
+   * Cron callback.
    */
   public function cron() {
     
@@ -132,7 +132,7 @@ class Boilerplate {
   }
 
   /**
-   * Custom cron scheduled time
+   * Custom cron scheduled time.
    */
   public function cron_schedules() {
 
@@ -146,53 +146,53 @@ class Boilerplate {
   }
 
   /**
-   * Define links for administrators
+   * Define links for administrators.
    */
   public function admin_menu() {
 
-    // Main settings page
+    // Main settings page.
     add_menu_page(__('Boilerplate'), __('Boilerplate'), 'edit_posts', $this->namespace . '/admin-pages/options.php');
     
-    // Subpages
+    // Subpages.
     // add_submenu_page($this->namespace . '/admin-pages/options.php', __('Boilerplate'), __('Boilerplate'), 'edit-posts', $this->namespace . '/admin-pages/options.php');
     add_submenu_page($this->namespace . '/admin-pages/options.php', __('Subpage'), __('Subpage'), 'edit-posts', $this->namespace . '/admin-pages/subpage.php');
 
   }
 
   /**
-   * AJAX callback
+   * AJAX callback.
    */
   public function ajax() {
     
-    // Check if the nonces match
+    // Check if the nonces match.
     if (!wp_verify_nonce($_POST['nonce'], $this->namespace . '-post-nonce')) die('Disallowed action.');
 
-    // Check the operation
+    // Check the operation.
     $op = filter_input(INPUT_POST, 'op', FILTER_SANITIZE_STRING);
     if (!$op) die('Disallowed operation.');
 
-    // Perform the actions
+    // Perform the actions.
     global $wpdb;
     switch ($op) {
 
-      // Sample AJAX callback action
+      // Sample AJAX callback action.
       case 'settings':
         break;
 
-      // Default handler
+      // Default handler.
       default:
         die('Disallowed action.');
         break;
 
     }
 
-    // Required by WP
+    // Required by WP.
     exit;
 
   }
 
   /**
-   * Custom shortcode
+   * Custom shortcode.
    */
   public function shortcode_boilerplate($atts) {
     extract(shortcode_atts(array(
@@ -203,5 +203,5 @@ class Boilerplate {
 
 }
 
-// Initiate our plugin
+// Initiate our plugin.
 new Boilerplate();

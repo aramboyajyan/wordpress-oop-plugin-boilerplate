@@ -2,7 +2,7 @@
 
 /**
  * @file
- * General options page
+ * General options page.
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
@@ -16,7 +16,7 @@ $page = array(
   'fieldset' => array(
     
     /**
-     * General admin settings
+     * General admin settings.
      */
     array(
       'title' => __('Plugin settings'),
@@ -31,7 +31,7 @@ $page = array(
         ),
       ),
       'fields' => array(
-        // Tab one content
+        // Tab one content.
         array(
           'id' => 'textfield',
           'type' => 'text',
@@ -94,7 +94,7 @@ $page = array(
           'class' => 'boilerplate-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'textarea'),
         ),
-        // Tab two content
+        // Tab two content.
         array(
           'id' => 'textfield_tab2',
           'type' => 'text',
@@ -111,7 +111,7 @@ $page = array(
         ),
       ),
     ),
-    // General admin settings end
+    // General admin settings end.
     
   ),
 );

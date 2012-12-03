@@ -1,7 +1,7 @@
 
 /**
  * @file
- * Plugin admin JS
+ * Plugin admin JS.
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
@@ -10,15 +10,15 @@ jQuery.noConflict();
 jQuery(document).ready(function($) {
   
   /**
-   * Image uploader
+   * Image uploader.
    */
-  // Button trigger
+  // Button trigger.
   $('.boilerplate-uploader').click(function() {
     $('.boilerplate-active-field').removeClass('boilerplate-active-field');
     $(this).prev('input[type=text]').addClass('boilerplate-active-field');
     tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
   });
-  // Inserting image URL
+  // Inserting image URL.
   window.send_to_editor = function(html) {
     imgurl = $('img',html).attr('src');
     $('.boilerplate-active-field').val(imgurl).removeClass('boilerplate-active-field');
@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
   }
   
   /**
-   * Fieldset tabs
+   * Fieldset tabs.
    */
   $('.boilerplate-tab-trigger').click(function(){
     var parentFieldset = $(this).parents('.boilerplate-fieldset-div');

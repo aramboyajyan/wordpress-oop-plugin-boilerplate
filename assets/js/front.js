@@ -1,7 +1,7 @@
 
 /**
  * @file
- * Plugin front-end JS
+ * Plugin front-end JS.
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
@@ -9,7 +9,7 @@
 jQuery.noConflict();
 jQuery(document).ready(function($) {
   
-  // Sample POST request
+  // Sample POST request.
   /*
   $.post(
     Boilerplate.URL,
@@ -22,7 +22,8 @@ jQuery(document).ready(function($) {
     function(response) {
       if (response == 'success') {
         alert('Success');
-      } else {
+      }
+      else {
         alert(response);
       }
     }

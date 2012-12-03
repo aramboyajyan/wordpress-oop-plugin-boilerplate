@@ -2,9 +2,10 @@
 
 /**
  * @file
- * General options page
+ * General options page.
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
  */
+
 print 'Subpage';
