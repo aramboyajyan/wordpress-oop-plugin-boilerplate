@@ -52,11 +52,11 @@ class Boilerplate_List_Users extends WP_List_Table {
    */
   function get_columns() {
     return array(
-      'name'     => 'Full name',
-      'username' => 'Username',
-      'email'    => 'Email',
-      'type'     => 'Type',
-      'action'   => 'Action',
+      'name'     => __('Full name'),
+      'username' => __('Username'),
+      'email'    => __('Email'),
+      'type'     => __('Type'),
+      'action'   => __('Action'),
     );
   }
   
