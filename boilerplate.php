@@ -151,11 +151,11 @@ class Boilerplate {
   public function admin_menu() {
 
     // Main settings page.
-    add_menu_page(__('Boilerplate'), __('Boilerplate'), 'edit_posts', $this->namespace . '/admin-pages/options.php');
+    add_menu_page(__('Boilerplate'), __('Boilerplate'), 'manage_options', $this->namespace . '/admin-pages/options.php');
     
     // Subpages.
-    // add_submenu_page($this->namespace . '/admin-pages/options.php', __('Boilerplate'), __('Boilerplate'), 'edit-posts', $this->namespace . '/admin-pages/options.php');
-    add_submenu_page($this->namespace . '/admin-pages/options.php', __('Subpage'), __('Subpage'), 'edit-posts', $this->namespace . '/admin-pages/subpage.php');
+    add_submenu_page($this->namespace . '/admin-pages/options.php', __('Options'), __('Options'), 'manage_options', $this->namespace . '/admin-pages/options.php');
+    add_submenu_page($this->namespace . '/admin-pages/options.php', __('Subpage'), __('Subpage'), 'manage_options', $this->namespace . '/admin-pages/subpage.php');
 
   }
 
