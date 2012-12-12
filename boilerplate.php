@@ -59,6 +59,8 @@ class Boilerplate {
     register_activation_hook(__FILE__, array(&$this, 'install'));
     // Shortcodes.
     add_shortcode('boilerplate', array(&$this, 'shortcode_boilerplate'));
+    // Widgets.
+    add_action('widgets_init', array(&$this, 'widgets'));
   }
 
   /**
@@ -188,6 +190,15 @@ class Boilerplate {
 
     // Required by WP.
     exit;
+
+  }
+
+  /**
+   * Register custom widgets.
+   */
+  public function widgets() {
+    
+    // 
 
   }
 
