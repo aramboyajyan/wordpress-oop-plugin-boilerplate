@@ -161,6 +161,7 @@ class Boilerplate {
     // Subpages.
     add_submenu_page($this->namespace . '/admin-pages/options.php', __('Options'), __('Options'), 'manage_options', $this->namespace . '/admin-pages/options.php');
     add_submenu_page($this->namespace . '/admin-pages/options.php', __('Subpage'), __('Subpage'), 'manage_options', $this->namespace . '/admin-pages/subpage.php');
+    add_submenu_page($this->namespace . '/admin-pages/options.php', __('User List'), __('User List'), 'manage_options', $this->namespace . '/admin-pages/user-list.php');
 
   }
 
