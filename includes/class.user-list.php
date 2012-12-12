@@ -28,7 +28,6 @@ class Boilerplate_List_Users extends WP_List_Table {
     ));
   }
   
-  
   /**
    * Define column methods.
    */
@@ -68,7 +67,6 @@ class Boilerplate_List_Users extends WP_List_Table {
     );
   }
   
-  
   /**
    * Prepare the data.
    */
@@ -87,12 +85,23 @@ class Boilerplate_List_Users extends WP_List_Table {
      * Prepare the data.
      */
     global $wpdb;
-    // 
+    $data = $wpdb->get_results($wpdb->prepare("SELECT
+                                                u.`ID`,
+                                                u.`user_email` AS `email`,
+                                                u.`user_login` AS `username`,
+                                                u.`display_name` AS `name`
+                                              FROM $wpdb->users u
+                                              ORDER BY u.`display_name` ASC", array()), ARRAY_A);
+
+    foreach ($data as $id => $user) {
+      // Construct sample action links.
+      $data[$id]['action'] = __('Sample action');
+    }
 
     /**
      * Sorting.
      */
-    function usort_reorder($a,$b) {
+    function usort_reorder($a, $b) {
       $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'name';
       $order   = (!empty($_REQUEST['order']))   ? $_REQUEST['order']   : 'asc';
       $result  = strcmp($a[$orderby], $b[$orderby]);
