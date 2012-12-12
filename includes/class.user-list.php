@@ -16,15 +16,15 @@ class Boilerplate_List_Users extends WP_List_Table {
   
   /**
    * Construct function.
-   * Set default settings.
    */
   function __construct() {
-    global $status, $page;
-    //Set parent defaults.
+    global $status;
+    global $page;
+    // Set parent defaults.
     parent::__construct(array(
-      'ajax' => FALSE,
+      'ajax'     => FALSE,
       'singular' => 'user',
-      'plural' => 'users',
+      'plural'   => 'users',
     ));
   }
   
@@ -37,8 +37,6 @@ class Boilerplate_List_Users extends WP_List_Table {
       case 'name':
       case 'username':
       case 'email':
-      case 'subscription':
-      case 'type':
       case 'action':
         return $item[$column_name];
       default:
@@ -55,7 +53,6 @@ class Boilerplate_List_Users extends WP_List_Table {
       'name'     => __('Full name'),
       'username' => __('Username'),
       'email'    => __('Email'),
-      'type'     => __('Type'),
       'action'   => __('Action'),
     );
   }
@@ -65,7 +62,7 @@ class Boilerplate_List_Users extends WP_List_Table {
    */
   function get_sortable_columns() {
     return array(
-      'name' => array('name', TRUE),     //TRUE means its already sorted
+      'name' => array('name', TRUE),
       'username' => array('username', FALSE),
       'email' => array('email', FALSE),
     );
@@ -77,6 +74,7 @@ class Boilerplate_List_Users extends WP_List_Table {
    */
   function prepare_items() {
     
+    // Number of items per page.
     $per_page = 25;
     
     // Column headers.
@@ -89,15 +87,16 @@ class Boilerplate_List_Users extends WP_List_Table {
      * Prepare the data.
      */
     global $wpdb;
+    // 
 
     /**
      * Sorting.
      */
     function usort_reorder($a,$b) {
       $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'name';
-      $order   = (!empty($_REQUEST['order'])) ? $_REQUEST['order'] : 'asc';
+      $order   = (!empty($_REQUEST['order']))   ? $_REQUEST['order']   : 'asc';
       $result  = strcmp($a[$orderby], $b[$orderby]);
-      return ($order==='asc') ? $result : -$result;
+      return ($order === 'asc') ? $result : -$result;
     }
     usort($data, 'usort_reorder');
     
@@ -109,7 +108,7 @@ class Boilerplate_List_Users extends WP_List_Table {
     $total_items = count($data);
     
     // Get only items for current page.
-    $data = array_slice($data,(($current_page-1)*$per_page),$per_page);
+    $data = array_slice($data, (($current_page - 1) * $per_page), $per_page);
     
     // Done - add it to items.
     $this->items = $data;
