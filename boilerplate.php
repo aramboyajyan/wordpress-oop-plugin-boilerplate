@@ -20,19 +20,16 @@
  */
 
 // Sanity check.
-if (!defined('ABSPATH')) die('Direct access is not allowed.');
+if (!defined('ABSPATH')) die('Direct access is not allowed.';
 
 // Helper functions.
-require dirname(__FILE__) . '/includes/helper-functions.php');
+require dirname(__FILE__) . '/includes/helper-functions.php';
 
 // Constant variables used in the plugin.
-require dirname(__FILE__) . '/includes/constants.php');
+require dirname(__FILE__) . '/includes/constants.php';
 
 // User list table class.
-require dirname(__FILE__) . '/includes/user-list.class.php');
-
-// Widgets
-
+require dirname(__FILE__) . '/includes/user-list.class.php';
 
 /**
  * Main plugin class.
