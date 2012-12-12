@@ -23,13 +23,16 @@
 if (!defined('ABSPATH')) die('Direct access is not allowed.');
 
 // Helper functions.
-include('includes/helper-functions.php');
+require dirname(__FILE__) . '/includes/helper-functions.php');
 
 // Constant variables used in the plugin.
-include('includes/constants.php');
+require dirname(__FILE__) . '/includes/constants.php');
 
 // User list table class.
-include('includes/user-list.class.php');
+require dirname(__FILE__) . '/includes/user-list.class.php');
+
+// Widgets
+
 
 /**
  * Main plugin class.
@@ -197,9 +200,7 @@ class Boilerplate {
    * Register custom widgets.
    */
   public function widgets() {
-    
-    // 
-
+    register_widget('Boilerplate_Widget');
   }
 
   /**
