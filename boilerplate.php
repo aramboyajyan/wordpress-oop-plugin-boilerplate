@@ -20,7 +20,7 @@
  */
 
 // Sanity check.
-if (!defined('ABSPATH')) die('Direct access is not allowed.';
+if (!defined('ABSPATH')) die('Direct access is not allowed.');
 
 // Helper functions.
 require dirname(__FILE__) . '/includes/helper-functions.php';
@@ -29,7 +29,10 @@ require dirname(__FILE__) . '/includes/helper-functions.php';
 require dirname(__FILE__) . '/includes/constants.php';
 
 // User list table class.
-require dirname(__FILE__) . '/includes/user-list.class.php';
+require dirname(__FILE__) . '/includes/class.user-list.php';
+
+// Widgets.
+require dirname(__FILE__) . '/includes/widget.sample.php';
 
 /**
  * Main plugin class.
@@ -197,7 +200,7 @@ class Boilerplate {
    * Register custom widgets.
    */
   public function widgets() {
-    register_widget('Boilerplate_Widget');
+    register_widget('Boilerplate_Sample_Widget');
   }
 
   /**
