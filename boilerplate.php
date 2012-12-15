@@ -4,7 +4,7 @@
  * @file
  * Boilerplate WordPress plugin.
  *
- * Created by: Topsitemakers
+ * Plugin and custom plugin framework created by: Topsitemakers.
  * http://www.topsitemakers.com/
  */
 
@@ -14,9 +14,6 @@
  * Author URI: http://www.topsitemakers.com/
  * Description: Custom plugin boilerplate.
  * Version: 1.0
- *
- * Plugin and custom plugin framework created by Topsitemakers
- * http://www.topsitemakers.com/
  */
 
 // Sanity check.
@@ -58,6 +55,7 @@ class Boilerplate {
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     add_filter('cron_schedules', array(&$this, 'cron_schedules'));
+    add_filter('admin_footer_text', array(&$this, 'admin_footer'));
     // Registers.
     register_activation_hook(__FILE__, array(&$this, 'install'));
     // Shortcodes.
@@ -122,6 +120,15 @@ class Boilerplate {
     // Admin scripts.
     wp_enqueue_script($this->namespace . '-script-admin', plugins_url($this->namespace . '/assets/js/admin.js'), array('jquery'));
     wp_enqueue_script('media-upload');
+
+  }
+
+  /**
+   * Admin footer text.
+   */
+  public function admin_footer() {
+    
+    // 
 
   }
 
