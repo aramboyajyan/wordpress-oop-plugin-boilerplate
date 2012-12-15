@@ -35,9 +35,27 @@ function boilerplate_field($field, $print = TRUE, $admin_page = FALSE) {
     case 'text':
       $output .= '<input type="text" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
       break;
+      
+    case 'email':
+      $output .= '<input type="email" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
+      break;
+      
+    case 'color':
+      $output .= '<input type="color" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
+      break;
+      
+    case 'date':
+      $output .= '<input type="date" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
+      break;
+      
+    case 'number':
+      $output .= '<input type="number" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
+      break;
+      
     case 'textarea':
       $output .= '<textarea id="' . $field['id'] . '" name="' . $field['id'] . '">' . $field['value'] . '</textarea>';
       break;
+      
     case 'select':
       $output .= '<select id="' . $field['id'] . '" name="' . $field['id'] . '">';
       foreach ($field['options'] as $value => $title) {
@@ -72,12 +90,15 @@ function boilerplate_field($field, $print = TRUE, $admin_page = FALSE) {
       $output .= '<input type="text" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
       $output .= '<a class="boilerplate-uploader button">' . __('Upload image') . '</a>';
       break;
+
     case 'checkbox':
       $output .= '<input type="checkbox" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
       break;
+
     case 'title':
       $output .= '<h4>' . $field['value'] . '</h4>';
       break;
+
     case 'submit':
       $output .= '<input class="button" type="submit" id="' . $field['id'] . '" value="' . $field['value'] . '" />';
       break;
