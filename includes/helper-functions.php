@@ -11,13 +11,13 @@
 /**
  * Display fields.
  *
- * If $admin_page is enabled, value will be fetched with get_option()
+ * If $admin_page is enabled, value will be fetched with get_option().
  */
 if (!function_exists('boilerplate_field')):
 function boilerplate_field($field, $print = TRUE, $admin_page = FALSE) {
-  // Wrap
+  // Wrap.
   $output  = '<div class="form-item ' . $field['class'] . '">';
-  // Label
+  // Label.
   if (isset($field['label'])) {
     $output .= '<label for="' . $field['id'] . '">' . $field['label'] . '</label>';
   } else {
@@ -28,9 +28,9 @@ function boilerplate_field($field, $print = TRUE, $admin_page = FALSE) {
   if (!$field['no-save']) {
     $field['value'] = ($admin_page && $field['type'] != 'submit' && !$field['editor']) ? get_option(BOILERPLATE_SHORTNAME . $field['id']) : $field['value'];
   }
-  // Field wrapper
+  // Field wrapper.
   $output .= '<div class="field">';
-  // Field
+  // Field.
   switch ($field['type']) {
     case 'text':
       $output .= '<input type="text" id="' . $field['id'] . '" name="' . $field['id'] . '" value="' . $field['value'] . '" />';
