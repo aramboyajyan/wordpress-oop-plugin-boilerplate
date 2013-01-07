@@ -50,8 +50,8 @@ class Boilerplate {
     add_action('init', array(&$this, 'init'));
     add_action('admin_init', array(&$this, 'admin_init'));
     add_action('admin_menu', array(&$this, 'admin_menu'));
-    add_action('wp_ajax_nopriv_boilerplate_ajax', array(&$this, 'ajax'));
-    add_action('wp_ajax_boilerplate_ajax', array(&$this, 'ajax'));
+    add_action('wp_ajax_nopriv_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
+    add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     add_filter('cron_schedules', array(&$this, 'cron_schedules'));
@@ -59,7 +59,7 @@ class Boilerplate {
     // Registers.
     register_activation_hook(__FILE__, array(&$this, 'install'));
     // Shortcodes.
-    add_shortcode('boilerplate', array(&$this, 'shortcode_boilerplate'));
+    add_shortcode('sample', array(&$this, 'shortcode_sample'));
     // Widgets.
     add_action('widgets_init', array(&$this, 'widgets'));
   }
@@ -214,7 +214,7 @@ class Boilerplate {
   /**
    * Custom shortcode.
    */
-  public function shortcode_boilerplate($atts) {
+  public function shortcode_sample($atts) {
     extract(shortcode_atts(array(
       'attribute' => 'value',
     ), $atts));
