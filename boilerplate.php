@@ -97,6 +97,11 @@ class Boilerplate {
    */
   public function init() {
     
+    // Start the session if it hasn't been started yet.
+    if (!session_id()) {
+      session_start();
+    }
+
     // Front-end styles.
     wp_enqueue_style($this->namespace . '-style', plugins_url($this->namespace . '/assets/css/front.css'));
     // Front-end scripts.
