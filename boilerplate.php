@@ -10,9 +10,9 @@
 
 /**
  * Plugin name: OOP Boilerplate
+ * Description: Custom plugin boilerplate.
  * Author: Topsitemakers
  * Author URI: http://www.topsitemakers.com/
- * Description: Custom plugin boilerplate.
  * Version: 1.0
  */
 
