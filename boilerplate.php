@@ -29,7 +29,7 @@ require dirname(__FILE__) . '/includes/constants.php';
 require dirname(__FILE__) . '/includes/class.user-list.php';
 
 // Widgets.
-require dirname(__FILE__) . '/includes/widget.sample.php';
+require dirname(__FILE__) . '/widgets/sample.php';
 
 /**
  * Main plugin class.

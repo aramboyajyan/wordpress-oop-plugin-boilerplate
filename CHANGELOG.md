@@ -17,6 +17,10 @@ Subpages polished.
 
 Starting/recreating the session in WordPress - upon init, login and logout actions.
 
+### February 17, 2013
+
+Adding a separate folder for `widgets`.
+
 <hr>
 
 By: [topsitemakers.com](http://www.topsitemakers.com).
