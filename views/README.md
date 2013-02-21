@@ -1,5 +1,5 @@
 ******************************************************************************
-/admin-pages
+/views
 ******************************************************************************
 
-Custom plugin pages to be displayed in admin area of the site.
+Contains plugin views to be used instead of manual embedding HTML code in PHP.

@@ -1,5 +1,5 @@
 ******************************************************************************
-/admin-pages
+/widgets
 ******************************************************************************
 
-Custom plugin pages to be displayed in admin area of the site.
+Contains custom widgets defined by the plugin.

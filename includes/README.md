@@ -1,5 +1,5 @@
 ******************************************************************************
-/admin-pages
+/includes
 ******************************************************************************
 
-Custom plugin pages to be displayed in admin area of the site.
+Contains helper functions, constants and other classes used by the plugin.

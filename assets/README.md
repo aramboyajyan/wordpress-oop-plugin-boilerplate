@@ -1,5 +1,6 @@
 ******************************************************************************
-/admin-pages
+/assets
 ******************************************************************************
 
-Custom plugin pages to be displayed in admin area of the site.
+All assets used by the plugin. By default, separate CSS/JS files are included
+for front and back-end of the site.
