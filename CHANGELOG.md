@@ -21,6 +21,10 @@ Starting/recreating the session in WordPress - upon init, login and logout actio
 
 Adding a separate folder for `widgets`.
 
+### February 21, 2013
+
+Adding `README.md` files to all folders.
+
 <hr>
 
 By: [topsitemakers.com](http://www.topsitemakers.com).

@@ -179,3 +179,12 @@ function boilerplate_admin_page_save_handle($message = FALSE) {
   }
 }
 endif;
+
+/**
+ * Include ("render") a view.
+ */
+if (!function_exists('boilerplate_get_view')):
+function boilerplate_get_view($view) {
+  include(plugin_dir_path(__FILE__) . '/../views/' . $view . '.php');
+}
+endif;
