@@ -35,7 +35,7 @@ class Boilerplate_Sample_Widget extends WP_Widget {
     // Prepare the variables used in the widget.
     $title = apply_filters('widget_title', empty($instance['title']) ? __('Widget Name') : $instance['title'], $instance, $this->id_base);
     $message = $instance['message'];
-    include(plugin_dir_path(__FILE__) . '/../views/widget.sample.php');
+    boilerplate_get_view('widget.sample');
     // Output any additional markup after the widget.
     print $after_widget;
   }

@@ -23,7 +23,8 @@ Adding a separate folder for `widgets`.
 
 ### February 21, 2013
 
-Adding `README.md` files to all folders.
+- Adding `README.md` files to all folders.
+- Adding separate function for rendering the views.
 
 <hr>
 
