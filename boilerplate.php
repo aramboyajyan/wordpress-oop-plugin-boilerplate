@@ -213,7 +213,6 @@ class Boilerplate {
       // Default handler.
       default:
         die('Disallowed action.');
-        break;
 
     }
 
