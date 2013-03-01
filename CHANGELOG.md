@@ -26,6 +26,10 @@ Adding a separate folder for `widgets`.
 - Adding `README.md` files to all folders.
 - Adding separate function for rendering the views.
 
+### March 1, 2013
+
+Separating helper files.
+
 <hr>
 
 By: [topsitemakers.com](http://www.topsitemakers.com).
