@@ -165,15 +165,13 @@ class Boilerplate {
   /**
    * Custom cron scheduled time.
    */
-  public function cron_schedules() {
-
-    return array(
-      'every_minute' => array(
-        'interval' => 60,
-        'display' => __('Every minute'),
-      ),
+  public function cron_schedules($schedules) {
+    $schedules['every_minute'] = array(
+      'interval' => 60,
+      'display'  => __('Every minute'),
     );
 
+    return $schedules;
   }
 
   /**
