@@ -20,8 +20,8 @@
 if (!defined('ABSPATH')) die('Direct access is not allowed.');
 
 // Helper functions.
-require dirname(__FILE__) . '/includes/helpers.common.php';
-require dirname(__FILE__) . '/includes/helpers.custom.php';
+require dirname(__FILE__) . '/includes/helper.common.php';
+require dirname(__FILE__) . '/includes/helper.custom.php';
 
 // Constant variables used in the plugin.
 require dirname(__FILE__) . '/includes/constants.php';
