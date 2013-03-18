@@ -190,3 +190,19 @@ function boilerplate_get_view($view) {
   include(plugin_dir_path(__FILE__) . '/../views/' . $view . '.php');
 }
 endif;
+
+/**
+ * Get the list of all active users. To be used for admin settings.
+ */
+if (!function_exists('boilerplate_get_list_of_users')):
+function boilerplate_get_list_of_users() {
+  global $wpdb;
+  $users_results = $wpdb->get_results("SELECT `ID`, `user_login` FROM $wpdb->users WHERE `user_status` = 0 ORDER BY `user_login` ASC");
+  $users = array();
+  foreach ($users_results as $user) {
+    $users[$user->ID] = $user->login . ' (ID: ' . $user->ID . ')';
+  }
+  
+  return $users;
+}
+endif;
