@@ -30,6 +30,10 @@ Adding a separate folder for `widgets`.
 
 Separating helper files.
 
+### March 18, 2013
+
+Adding helper functions for getting the list of users and posts for admin area.
+
 <hr>
 
 By: [topsitemakers.com](http://www.topsitemakers.com).
