@@ -214,7 +214,7 @@ endif;
 if (!function_exists('boilerplate_get_list_of_posts')):
 function boilerplate_get_list_of_posts($type = 'post') {
   global $wpdb;
-  $posts_results = $wpdb->get_results($wpdb->prepare("SELECT `ID`, `post_title` FROM $wpdb->posts WHERE `post_type` = '%s' AND `post_status` = 'publish'", array($type)));
+  $posts_results = $wpdb->get_results($wpdb->prepare("SELECT `ID`, `post_title` FROM $wpdb->posts WHERE `post_type` = '%s' AND `post_status` = 'publish' ORDER BY `post_title` ASC", array($type)));
   $posts = array();
   foreach ($posts_results as $post) {
     $posts[$post->ID] = $post->post_title . ' (ID: ' . $post->ID . ')';
