@@ -200,7 +200,7 @@ function boilerplate_get_list_of_users() {
   $users_results = $wpdb->get_results("SELECT `ID`, `user_login` FROM $wpdb->users WHERE `user_status` = 0 ORDER BY `user_login` ASC");
   $users = array();
   foreach ($users_results as $user) {
-    $users[$user->ID] = $user->login . ' (ID: ' . $user->ID . ')';
+    $users[$user->ID] = $user->user_login . ' (ID: ' . $user->ID . ')';
   }
   
   return $users;
