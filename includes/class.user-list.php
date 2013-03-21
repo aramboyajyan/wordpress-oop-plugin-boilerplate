@@ -75,6 +75,21 @@ class Boilerplate_List_Users extends WP_List_Table {
   }
 
   /**
+   * Add extra information to the header/footer of the list table.
+   */
+  public function extra_tablenav($which) {
+    switch ($which) {
+      case 'top':
+        // 
+        break;
+
+      case 'bottom':
+        // 
+        break;
+    }
+  }
+
+  /**
    * Prepare the data.
    */
   public function prepare_items() {
