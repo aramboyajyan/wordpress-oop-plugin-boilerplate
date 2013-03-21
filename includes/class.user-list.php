@@ -71,7 +71,7 @@ class Boilerplate_List_Users extends WP_List_Table {
    * Message displayed to the admin when there are no results.
    */
   public function no_items() {
-    return __('There are no logs in the database at the moment.');
+    _e('There are no logs in the database at the moment.');
   }
 
   /**
