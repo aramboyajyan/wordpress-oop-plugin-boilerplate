@@ -54,7 +54,7 @@ class Boilerplate {
     add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
-    add_filter('cron_schedules', array(&$this, 'cron_schedules'));
+    // 
     // Registers.
     register_activation_hook(__FILE__, array(&$this, 'install'));
     // Shortcodes.
@@ -131,18 +131,6 @@ class Boilerplate {
 
     // 
 
-  }
-
-  /**
-   * Custom cron scheduled time.
-   */
-  public function cron_schedules($schedules) {
-    $schedules['every_minute'] = array(
-      'interval' => 60,
-      'display'  => __('Every minute'),
-    );
-
-    return $schedules;
   }
 
   /**
