@@ -53,11 +53,6 @@ class Boilerplate {
     add_action('wp_ajax_nopriv_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
-    // Actions used for recreating the session. Make sure the callback for
-    // recreating the session is called last upon login/logout.
-    add_action('init', array(&$this, 'recreate_session'));
-    add_action('wp_login', array(&$this, 'recreate_session'), 100);
-    add_action('wp_logout', array(&$this, 'recreate_session'), 100);
     // Filters.
     add_filter('cron_schedules', array(&$this, 'cron_schedules'));
     add_filter('admin_footer_text', array(&$this, 'admin_footer'));
@@ -126,19 +121,6 @@ class Boilerplate {
     wp_enqueue_script($this->namespace . '-script-admin', plugins_url($this->namespace . '/assets/js/admin.js'), array('jquery'));
     wp_enqueue_script('media-upload');
 
-  }
-
-  /**
-   * Start and/or recreate the session.
-   */
-  public function recreate_session() {
-    if (session_id()) {
-      session_destroy();
-      session_start();
-    }
-    else {
-      session_start();
-    }
   }
 
   /**
