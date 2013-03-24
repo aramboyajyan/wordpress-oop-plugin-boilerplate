@@ -187,6 +187,9 @@ class Boilerplate {
 
   /**
    * Register custom widgets.
+   *
+   * Widgets should be placed in separate files in /widgets and included at
+   * the beginning of this file.
    */
   public function widgets() {
     register_widget('Boilerplate_Sample_Widget');
