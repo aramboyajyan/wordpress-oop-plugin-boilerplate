@@ -207,7 +207,14 @@ class Boilerplate {
       global $wpdb;
       $post = get_post($post_id);
 
-      // 
+      // Custom processing based on post type.
+      switch ($post->post_type) {
+        case 'page':
+          break;
+
+        case 'post':
+          break;
+      }
 
     }
   }
