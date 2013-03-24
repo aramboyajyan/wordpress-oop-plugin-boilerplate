@@ -54,6 +54,7 @@ class Boilerplate {
     add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('save_post', array(&$this, 'save_post'));
     add_action('comment_post', array(&$this, 'comment_post'));
+    add_action('profile_update', array(&$this, 'profile_update'), 100);
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     // 
@@ -228,6 +229,19 @@ class Boilerplate {
 
     // 
 
+  }
+
+  /**
+   * Action called upon updating user profile.
+   */
+  public function profile_update($user_id = NULL, $old_user_data = NULL) {
+    if ($user_id) {
+      global $wpdb;
+      $user = get_userdata($user_id);
+
+      // 
+
+    }
   }
 
 }
