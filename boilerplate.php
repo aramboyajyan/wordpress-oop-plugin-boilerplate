@@ -132,7 +132,6 @@ class Boilerplate {
    * Cron callback.
    */
   public function cron() {
-    
     global $wpdb;
 
     // 
@@ -199,9 +198,12 @@ class Boilerplate {
    * Custom shortcode.
    */
   public function shortcode_sample($atts) {
+    global $wpdb;
+    
     extract(shortcode_atts(array(
       'attribute' => 'value',
     ), $atts));
+
     return 'attribute = "' . $attribute . '"';
   }
 
