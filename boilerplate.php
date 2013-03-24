@@ -52,6 +52,7 @@ class Boilerplate {
     add_action('admin_menu', array(&$this, 'admin_menu'));
     add_action('wp_ajax_nopriv_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
+    add_action('save_post', array(&$this, 'save_post'));
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     // 
@@ -194,6 +195,20 @@ class Boilerplate {
       'attribute' => 'value',
     ), $atts));
     return 'attribute = "' . $attribute . '"';
+  }
+
+  /**
+   * Action called upon saving a new post.
+   */
+  public function save_post($post_id) {
+    // Make sure this is not a revision.
+    if (!wp_is_post_revision($post_id)) {
+      global $wpdb;
+      $post = get_post($post_id);
+
+      // 
+
+    }
   }
 
 }
