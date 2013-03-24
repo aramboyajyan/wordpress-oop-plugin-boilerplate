@@ -55,6 +55,7 @@ class Boilerplate {
     add_action('save_post', array(&$this, 'save_post'));
     add_action('comment_post', array(&$this, 'comment_post'));
     add_action('profile_update', array(&$this, 'profile_update'), 100);
+    add_action('user_register', array(&$this, 'user_register'), 100);
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     // 
@@ -242,6 +243,17 @@ class Boilerplate {
       // 
 
     }
+  }
+
+  /**
+   * Action called upon user registration.
+   */
+  public function user_register($user_id) {
+    global $wpdb;
+    $user = get_userdata($user_id);
+
+    // 
+
   }
 
 }
