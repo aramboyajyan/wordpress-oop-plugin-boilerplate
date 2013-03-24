@@ -10,7 +10,7 @@
 
 /**
  * Plugin name: OOP Boilerplate
- * Description: Custom plugin boilerplate.
+ * Description: Custom plugin boilerplate. Based on the <a href="http://github.com/topsitemakers/laguna">Laguna WordPress plugin framework</a>.
  * Author: Topsitemakers
  * Author URI: http://www.topsitemakers.com/
  * Version: 1.0
