@@ -53,6 +53,7 @@ class Boilerplate {
     add_action('wp_ajax_nopriv_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('save_post', array(&$this, 'save_post'));
+    add_action('comment_post', array(&$this, 'comment_post'));
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     // 
@@ -209,6 +210,17 @@ class Boilerplate {
       // 
 
     }
+  }
+
+  /**
+   * Action called upon submitting a new comment.
+   */
+  public function comment_post($comment_id, $approval_status) {
+    global $wpdb;
+    $comment = get_comment($comment_id);
+
+    // 
+
   }
 
 }
