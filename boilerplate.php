@@ -24,7 +24,6 @@ require dirname(__FILE__) . '/includes/constants.php';
 
 // Helper functions.
 require dirname(__FILE__) . '/includes/helper.common.php';
-require dirname(__FILE__) . '/includes/helper.custom.php';
 
 // User list table class.
 require dirname(__FILE__) . '/includes/class.user-list.php';
@@ -104,9 +103,9 @@ class Boilerplate {
   public function init() {
     
     // Front-end styles.
-    wp_enqueue_style($this->namespace . '-style', plugins_url($this->namespace . '/assets/css/front.css'));
+    wp_enqueue_style($this->namespace . '-style-common', plugins_url($this->namespace . '/assets/css/front.css'));
     // Front-end scripts.
-    wp_enqueue_script($this->namespace . '-script', plugins_url($this->namespace . '/assets/js/front.js'), array('jquery'));
+    wp_enqueue_script($this->namespace . '-script-common', plugins_url($this->namespace . '/assets/js/front.js'), array('jquery'));
     
     // Hook our cron.
     if (!wp_next_scheduled($this->namespace . '_execute_cron')) {
