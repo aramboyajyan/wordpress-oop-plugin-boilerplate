@@ -53,9 +53,11 @@ class Boilerplate {
     add_action('wp_ajax_nopriv_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
     add_action('save_post', array(&$this, 'save_post'));
+    add_action('before_delete_post', array(&$this, 'before_delete_post'));
     add_action('comment_post', array(&$this, 'comment_post'));
     add_action('profile_update', array(&$this, 'profile_update'), 100);
     add_action('user_register', array(&$this, 'user_register'), 100);
+    add_action('delete_user', array(&$this, 'delete_user'), 100);
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     // 
@@ -222,6 +224,27 @@ class Boilerplate {
   }
 
   /**
+   * Action called upon saving a new post.
+   */
+  public function before_delete_post($post_id) {
+    // Make sure this is not a revision.
+    if (!wp_is_post_revision($post_id)) {
+      global $wpdb;
+      $post = get_post($post_id);
+
+      // Custom processing based on post type.
+      switch ($post->post_type) {
+        case 'page':
+          break;
+
+        case 'post':
+          break;
+      }
+
+    }
+  }
+
+  /**
    * Action called upon submitting a new comment.
    */
   public function comment_post($comment_id, $approval_status) {
@@ -249,6 +272,20 @@ class Boilerplate {
    * Action called upon user registration.
    */
   public function user_register($user_id) {
+    global $wpdb;
+    $user = get_userdata($user_id);
+
+    // 
+
+  }
+
+  /**
+   * Action called upon user deletion.
+   *
+   * Note: the action call in $this->init() has weight of 100. This might need
+   * to be adjusted for purposes of the plugin.
+   */
+  public function delete_user($user_id) {
     global $wpdb;
     $user = get_userdata($user_id);
 
