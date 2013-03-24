@@ -47,18 +47,18 @@ class Boilerplate {
     // Localization.
     load_plugin_textdomain($this->namespace . '-locale', FALSE, dirname(plugin_basename(__FILE__)) . '/lang');
     // Actions.
-    add_action('init', array(&$this, 'init'));
-    add_action('admin_init', array(&$this, 'admin_init'));
-    add_action('admin_menu', array(&$this, 'admin_menu'));
+    add_action('init',                                         array(&$this, 'init'));
+    add_action('admin_init',                                   array(&$this, 'admin_init'));
+    add_action('admin_menu',                                   array(&$this, 'admin_menu'));
     add_action('wp_ajax_nopriv_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
-    add_action('wp_ajax_' . $this->namespace . '_ajax', array(&$this, 'ajax'));
-    add_action('save_post', array(&$this, 'save_post'));
-    add_action('before_delete_post', array(&$this, 'before_delete_post'));
-    add_action('comment_post', array(&$this, 'comment_post'));
-    add_action('profile_update', array(&$this, 'profile_update'), 100);
-    add_action('user_register', array(&$this, 'user_register'), 100);
-    add_action('delete_user', array(&$this, 'delete_user'), 100);
-    add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
+    add_action('wp_ajax_' . $this->namespace . '_ajax',        array(&$this, 'ajax'));
+    add_action('save_post',                                    array(&$this, 'save_post'));
+    add_action('before_delete_post',                           array(&$this, 'before_delete_post'));
+    add_action('comment_post',                                 array(&$this, 'comment_post'));
+    add_action('profile_update',                               array(&$this, 'profile_update'), 100);
+    add_action('user_register',                                array(&$this, 'user_register'), 100);
+    add_action('delete_user',                                  array(&$this, 'delete_user'), 100);
+    add_action($this->namespace . '_execute_cron',             array(&$this, 'cron'));
     // Filters.
     // 
     // Registers.
