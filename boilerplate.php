@@ -55,7 +55,6 @@ class Boilerplate {
     add_action($this->namespace . '_execute_cron', array(&$this, 'cron'));
     // Filters.
     add_filter('cron_schedules', array(&$this, 'cron_schedules'));
-    add_filter('admin_footer_text', array(&$this, 'admin_footer'));
     // Registers.
     register_activation_hook(__FILE__, array(&$this, 'install'));
     // Shortcodes.
@@ -120,15 +119,6 @@ class Boilerplate {
     // Admin scripts.
     wp_enqueue_script($this->namespace . '-script-admin', plugins_url($this->namespace . '/assets/js/admin.js'), array('jquery'));
     wp_enqueue_script('media-upload');
-
-  }
-
-  /**
-   * Admin footer text.
-   */
-  public function admin_footer() {
-    
-    // 
 
   }
 
