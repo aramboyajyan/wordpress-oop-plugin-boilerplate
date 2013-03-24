@@ -7,7 +7,7 @@
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
  */
-boilerplate_admin_page_save_handle();
+laguna_admin_page_save_handle();
 $page = array(
   'title' => __('Sample subpage'),
   'description' => __('This is sample page description.'),
@@ -115,4 +115,4 @@ $page = array(
     
   ),
 );
-boilerplate_generate_admin_page($page);
+laguna_generate_admin_page($page);
