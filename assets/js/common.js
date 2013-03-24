@@ -1,7 +1,7 @@
 
 /**
  * @file
- * Plugin front-end JS.
+ * Plugin common JS.
  *
  * Created by: Topsitemakers
  * http://www.topsitemakers.com/
