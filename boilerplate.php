@@ -199,7 +199,7 @@ class Boilerplate {
    */
   public function shortcode_sample($atts) {
     global $wpdb;
-    
+
     extract(shortcode_atts(array(
       'attribute' => 'value',
     ), $atts));

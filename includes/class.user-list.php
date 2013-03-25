@@ -93,6 +93,7 @@ class Boilerplate_List_Users extends WP_List_Table {
    * Prepare the data.
    */
   public function prepare_items() {
+    global $wpdb;
     
     // Number of items per page.
     $per_page = 25;
@@ -103,10 +104,7 @@ class Boilerplate_List_Users extends WP_List_Table {
     $sortable = $this->get_sortable_columns();
     $this->_column_headers = array($columns, $hidden, $sortable);
     
-    /**
-     * Prepare the data.
-     */
-    global $wpdb;
+    // Prepare the data.
     $data = $wpdb->get_results($wpdb->prepare("SELECT
                                                 u.`ID`,
                                                 u.`user_email` AS `email`,
