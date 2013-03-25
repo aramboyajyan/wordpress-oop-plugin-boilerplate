@@ -157,4 +157,19 @@ class Boilerplate_List_Users extends WP_List_Table {
     return array('wp-list-table', 'widefat', 'fixed', 'boilerplate');
   }
 
+  /**
+   * Add extra information to the header/footer of the list table.
+   */
+  public function extra_tablenav($which) {
+    switch ($which) {
+      case 'top':
+        // 
+        break;
+
+      case 'bottom':
+        // 
+        break;
+    }
+  }
+
 }
