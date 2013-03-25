@@ -37,7 +37,7 @@ $page = array(
           'type' => 'text',
           'label' => __('Text field'),
           'help' => __('Text field help text.'),
-          'class' => 'boilerplate-tab-content tab-one',
+          'class' => 'laguna-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'textfield'),
         ),
         array(
@@ -45,7 +45,7 @@ $page = array(
           'type' => 'select',
           'label' => __('Select'),
           'help' => __('Select help text.'),
-          'class' => 'boilerplate-tab-content tab-one',
+          'class' => 'laguna-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'select'),
           'options' => array(
             1 => 'Option 1',
@@ -60,7 +60,7 @@ $page = array(
           'type' => 'radios',
           'label' => __('Radios'),
           'help' => __('Radios help text.'),
-          'class' => 'boilerplate-tab-content tab-one',
+          'class' => 'laguna-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'radios'),
           'options' => array(
             1 => __('Option 1'),
@@ -75,7 +75,7 @@ $page = array(
           'type' => 'checkbox',
           'label' => __('Checkbox'),
           'help' => __('Checkbox help text.'),
-          'class' => 'boilerplate-tab-content tab-one',
+          'class' => 'laguna-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'checkbox'),
         ),
         array(
@@ -83,7 +83,7 @@ $page = array(
           'type' => 'file',
           'label' => __('File field'),
           'help' => __('File help text.'),
-          'class' => 'boilerplate-tab-content tab-one',
+          'class' => 'laguna-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'file'),
         ),
         array(
@@ -91,7 +91,7 @@ $page = array(
           'type' => 'textarea',
           'label' => __('Text area'),
           'help' => __('Textarea help text.'),
-          'class' => 'boilerplate-tab-content tab-one',
+          'class' => 'laguna-tab-content tab-one',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'textarea'),
         ),
         // Tab two content.
@@ -100,7 +100,7 @@ $page = array(
           'type' => 'text',
           'label' => __('Text field'),
           'help' => __('Text field help text.'),
-          'class' => 'boilerplate-tab-content tab-two',
+          'class' => 'laguna-tab-content tab-two',
           'value' => get_option(BOILERPLATE_SHORTNAME . 'textfield_tab2'),
         ),
         array(
