@@ -150,4 +150,11 @@ class Boilerplate_List_Users extends WP_List_Table {
     ));
   }
   
+  /**
+   * Override default table stylesheet classes.
+   */
+  public function get_table_classes() {
+    return array('wp-list-table', 'widefat', 'fixed', 'boilerplate');
+  }
+
 }
